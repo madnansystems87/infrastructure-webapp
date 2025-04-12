@@ -49,7 +49,7 @@ resource "aws_eks_node_group" "eks_ng_private" {
     max_unavailable = 1
   }
 
- # depends_on = [
+  depends_on = [
     aws_iam_role_policy_attachment.eks_node_policies
   ]
 }
@@ -62,10 +62,10 @@ resource "aws_iam_openid_connect_provider" "oidc_provider" {
   url             = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
 }
 
-#data "aws_eks_cluster_auth" "eks_cluster" {
+data "aws_eks_cluster_auth" "eks_cluster" {
   name = aws_eks_cluster.eks_cluster.name
 }
-#provider "kubernetes" {
+provider "kubernetes" {
   host                   = aws_eks_cluster.eks_cluster.endpoint
   cluster_ca_certificate = base64decode(aws_eks_cluster.eks_cluster.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.eks_cluster.token
