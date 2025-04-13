@@ -18,3 +18,8 @@ variable "vpc_availability_zones"{}
 variable "environment"{}
 
 variable "vpc_name"{}
+
+variable "aws_access_role" {
+  description = "ARN of the AWS access role"
+  type        = string
+}
