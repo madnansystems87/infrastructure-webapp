@@ -129,3 +129,8 @@ variable "cluster_alias" {
   description = "Alias of the EKS cluster"
   type        = string
 }
+
+variable "cluster_alias" {
+  description = "Alias of the EKS cluster"
+  type        = string
+}
