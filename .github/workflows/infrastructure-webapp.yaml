@@ -22,6 +22,7 @@ jobs:
     uses: madnansystems87/reusable-templates/.github/workflows/infrastructure-provisioning.yml@main
     with:
       TF_ENVIRONMENT: ${{ github.event.inputs.TF_ENVIRONMENT }}
+      ROLE_NAME: github-actions-oidc-role
     secrets:
       AWS_REGION: ${{ secrets.AWS_REGION }}
       S3_AWS_REGION: ${{ secrets.S3_AWS_REGION }}
@@ -44,4 +45,3 @@ jobs:
       KUBECONFIG_PATH: ${{ secrets.KUBECONFIG_PATH }}
       CLUSTER_ALIAS: ${{ secrets.CLUSTER_ALIAS }}
       AWS_Access_ROLE_ARN: ${{ secrets.AWS_Access_ROLE_ARN }}
-      ROLE_NAME: ${{ secrets.ROLE_NAME }}
