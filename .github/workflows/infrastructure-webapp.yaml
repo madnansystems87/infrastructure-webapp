@@ -4,12 +4,12 @@ on:
   pull_request:
     inputs:
       TF_ENVIRONMENT:
-        description: Terraform environment (e.g., dev, prod)
+        description: Terraform environment 
         required: true
   workflow_dispatch:
     inputs:
       TF_ENVIRONMENT:
-        description: Terraform environment (e.g., dev, prod)
+        description: Terraform environment
         required: true
 
 permissions:
