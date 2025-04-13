@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   deploy-infrastructure:
-    uses: madnansystems87/reusable-template/.github/workflows/infrastructure-provisioning.yml@main
+    uses: madnansystems87/reusable-templates/.github/workflows/infrastructure-provisioning.yml@main
     with:
       TF_ENVIRONMENT: ${{ github.event.inputs.TF_ENVIRONMENT }}
     secrets:
