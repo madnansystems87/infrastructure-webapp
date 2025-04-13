@@ -38,9 +38,9 @@ jobs:
       USER_2_USERNAME: ${{ secrets.USER_2_USERNAME }}
       CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
       CLUSTER_VERSION: ${{ secrets.CLUSTER_VERSION }}
-      NODE_GROUP_NAME: ${{ secrets.NODE_GROUP_NAME }}
-      VPC_NAME: ${{ secrets.VPC_NAME }}
-      BASTION_NAME: ${{ secrets.BASTION_NAME }}
-      KUBECONFIG_PATH: ${{ secrets.KUBECONFIG_PATH }}
-      CLUSTER_ALIAS: ${{ secrets.CLUSTER_ALIAS }}
-      AWS_Access_ROLE_ARN: ${{ secrets.AWS_Access_ROLE_ARN }}
+      #NODE_GROUP_NAME: ${{ secrets.NODE_GROUP_NAME }}
+      #VPC_NAME: ${{ secrets.VPC_NAME }}
+      #BASTION_NAME: ${{ secrets.BASTION_NAME }}
+      #KUBECONFIG_PATH: ${{ secrets.KUBECONFIG_PATH }}
+      #CLUSTER_ALIAS: ${{ secrets.CLUSTER_ALIAS }}
+     # AWS_Access_ROLE_ARN: ${{ secrets.AWS_Access_ROLE_ARN }}
