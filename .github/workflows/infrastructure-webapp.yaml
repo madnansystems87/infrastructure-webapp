@@ -1,0 +1,46 @@
+name: Deploy Infrastructure
+
+on:
+  pull_request:
+    inputs:
+      TF_ENVIRONMENT:
+        description: Terraform environment (e.g., dev, prod)
+        required: true
+  workflow_dispatch:
+    inputs:
+      TF_ENVIRONMENT:
+        description: Terraform environment (e.g., dev, prod)
+        required: true
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-infrastructure:
+    uses: madilshahzad/reusable-template/.github/workflows/infrastructure-provisioning.yml@main
+    with:
+      TF_ENVIRONMENT: ${{ github.event.inputs.TF_ENVIRONMENT }}
+    secrets:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      S3_AWS_REGION: ${{ secrets.S3_AWS_REGION }}
+      TF_STATE_S3_BUCKET: ${{ secrets.TF_STATE_S3_BUCKET }}
+      TF_STATE_FILE_KEY: ${{ secrets.TF_STATE_FILE_KEY }}
+      TF_STATE_DYNAMODB_TABLE: ${{ secrets.TF_STATE_DYNAMODB_TABLE }}
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      NODE_ROLE_ARN: ${{ secrets.NODE_ROLE_ARN }}
+      MASTER_ROLE_ARN: ${{ secrets.MASTER_ROLE_ARN }}
+      KEY_NAME: ${{ secrets.KEY_NAME }}
+      USER_1_ARN: ${{ secrets.USER_1_ARN }}
+      USER_1_USERNAME: ${{ secrets.USER_1_USERNAME }}
+      USER_2_ARN: ${{ secrets.USER_2_ARN }}
+      USER_2_USERNAME: ${{ secrets.USER_2_USERNAME }}
+      CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+      CLUSTER_VERSION: ${{ secrets.CLUSTER_VERSION }}
+      NODE_GROUP_NAME: ${{ secrets.NODE_GROUP_NAME }}
+      VPC_NAME: ${{ secrets.VPC_NAME }}
+      BASTION_NAME: ${{ secrets.BASTION_NAME }}
+      KUBECONFIG_PATH: ${{ secrets.KUBECONFIG_PATH }}
+      CLUSTER_ALIAS: ${{ secrets.CLUSTER_ALIAS }}
+      AWS_Access_ROLE_ARN: ${{ secrets.AWS_Access_ROLE_ARN }}
