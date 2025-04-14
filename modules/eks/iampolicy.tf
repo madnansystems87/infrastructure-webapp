@@ -1,6 +1,6 @@
 # Setting up IAM Policies
 resource "aws_iam_role" "eks_master_role" {
-  name = "eks_master_role"
+  name = "master_eks"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -39,7 +39,7 @@ resource "aws_iam_role_policy_attachment" "eks_master_policy_service" {
 
 # EKS Node Policies
 resource "aws_iam_role" "eks_node_role" {
-  name = "eks_node_role"
+  name = "worker_eks"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
